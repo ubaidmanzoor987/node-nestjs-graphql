@@ -1,0 +1,89 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateTodoInput {
+  description: String
+  title: String!
+}
+
+input CreateUserInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  userName: String!
+}
+
+type CreateUserOutput {
+  message: String
+  user: User
+}
+
+input ListTodoInput {
+  _id: String
+  description: String
+  title: String
+}
+
+input LisUsersInput {
+  _id: String
+  email: String
+  firstName: String
+  lastName: String
+  userName: String
+}
+
+input LoginUserInput {
+  password: String!
+  userName: String!
+}
+
+type LoginUserOutput {
+  token: String!
+}
+
+type Mutation {
+  createTodo(payload: CreateTodoInput!): Todo!
+  createUser(payload: CreateUserInput!): CreateUserOutput!
+  deleteTodo(_id: String!): Todo!
+  deleteUser(_id: String!): User!
+  updateTodo(payload: UpdateTodoInput!): Todo!
+  updateUser(payload: UpdateUserInput!): User!
+}
+
+type Query {
+  login(payload: LoginUserInput!): LoginUserOutput!
+  todo(_id: String!): Todo!
+  todos(filters: ListTodoInput): [Todo!]!
+  users(filters: LisUsersInput): [User!]!
+}
+
+type Todo {
+  _id: String!
+  description: String!
+  title: String!
+}
+
+input UpdateTodoInput {
+  _id: String!
+  description: String
+  title: String
+}
+
+input UpdateUserInput {
+  _id: String!
+  email: String
+  firstName: String
+  lastName: String
+  userName: String
+}
+
+type User {
+  _id: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  userName: String!
+}
